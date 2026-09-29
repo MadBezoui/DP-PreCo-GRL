@@ -1,0 +1,63 @@
+{
+  "ours": "DP-PreCo-GRL",
+  "main": {
+    "DP-PreCo-GRL": [
+      "preco_s0",
+      "preco_s1",
+      "preco_s2",
+      "preco_s3",
+      "preco_s4"
+    ],
+    "LS-GRL": [
+      "linear_s0",
+      "linear_s1",
+      "linear_s2",
+      "linear_s3",
+      "linear_s4"
+    ]
+  },
+  "ablation": {
+    "w/o graph attention": [
+      "nogat_s0",
+      "nogat_s1"
+    ],
+    "w/o FiLM": [
+      "nofilm_s0",
+      "nofilm_s1"
+    ],
+    "w/o criteria head": [
+      "nocrit_s0",
+      "nocrit_s1"
+    ],
+    "w/o expert pool": [
+      "noexpert_s0",
+      "noexpert_s1"
+    ],
+    "w/o elite pool": [
+      "noelite_s0",
+      "noelite_s1"
+    ],
+    "w/o postponement": [
+      "nodelay_s0",
+      "nodelay_s1"
+    ],
+    "w/o credibility mask": [
+      "nomask_s0",
+      "nomask_s1"
+    ],
+    "BC warm start only (PreCo targets)": [
+      "bconly_preco_s0",
+      "bconly_preco_s1",
+      "bconly_preco_s2",
+      "bconly_preco_s3",
+      "bconly_preco_s4"
+    ],
+    "BC warm start only (LS targets)": [
+      "bconly_linear_s0",
+      "bconly_linear_s1",
+      "bconly_linear_s2",
+      "bconly_linear_s3",
+      "bconly_linear_s4"
+    ]
+  }
+}

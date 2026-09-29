@@ -1,0 +1,41 @@
+[rep_nofilm_s1] pretrain 0 loss=5.733 t=6s
+[rep_nofilm_s1] pretrain 10 loss=3.066 t=39s
+[rep_nofilm_s1] pretrain 20 loss=4.217 t=72s
+[rep_nofilm_s1] pretrain 30 loss=3.388 t=121s
+[rep_nofilm_s1] pretrain 39 loss=2.822 t=169s
+[rep_nofilm_s1] it=0 t=205s val_HV=1.6003
+/Users/madanibezoui/Documents/Projects/BrainStorming/morl_fjsp/train.py:395: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /Users/runner/work/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:821.)
+  stats.append((float(pg), float(vf), float(ent.mean()), bc_val))
+[rep_nofilm_s1] it=0 t=228s pg=-0.016 vf=0.756 ent=2.21 bc=4.51 F=[1.6440e+01 1.8903e+02 5.9804e+02 5.5000e-01]
+[rep_nofilm_s1] it=5 t=307s pg=-0.030 vf=1.175 ent=2.11 bc=4.47 F=[1.5790e+01 1.7890e+02 5.7311e+02 5.0000e-01]
+[rep_nofilm_s1] it=10 t=381s pg=0.000 vf=0.379 ent=2.28 bc=4.36 F=[ 17.18 191.2  563.35   0.59]
+[rep_nofilm_s1] it=15 t=464s val_HV=1.6966
+[rep_nofilm_s1] it=15 t=478s pg=-0.000 vf=0.908 ent=2.26 bc=4.71 F=[1.9020e+01 1.8472e+02 5.8680e+02 5.2000e-01]
+[rep_nofilm_s1] it=20 t=534s pg=-0.017 vf=0.637 ent=2.20 bc=4.72 F=[1.5730e+01 1.8067e+02 5.8108e+02 5.6000e-01]
+[rep_nofilm_s1] it=25 t=599s pg=0.041 vf=0.177 ent=2.33 bc=4.78 F=[ 15.69 180.05 555.69   0.57]
+[rep_nofilm_s1] it=30 t=688s val_HV=1.7526
+[rep_nofilm_s1] it=30 t=700s pg=0.026 vf=0.950 ent=2.20 bc=4.56 F=[ 15.83 168.82 505.64   0.51]
+[rep_nofilm_s1] it=35 t=753s pg=-0.044 vf=0.333 ent=2.13 bc=4.20 F=[1.6440e+01 1.7628e+02 5.3704e+02 5.3000e-01]
+[rep_nofilm_s1] it=40 t=811s pg=-0.020 vf=0.711 ent=2.16 bc=4.56 F=[1.7480e+01 1.8174e+02 5.7725e+02 4.8000e-01]
+[rep_nofilm_s1] it=45 t=924s val_HV=1.7689
+[rep_nofilm_s1] it=45 t=936s pg=-0.025 vf=0.085 ent=2.26 bc=4.13 F=[ 15.09 169.32 526.09   0.58]
+[rep_nofilm_s1] it=50 t=1010s pg=-0.002 vf=0.538 ent=2.36 bc=4.29 F=[1.5650e+01 1.9416e+02 5.9131e+02 5.5000e-01]
+[rep_nofilm_s1] it=55 t=1066s pg=-0.015 vf=0.476 ent=2.19 bc=4.50 F=[1.6950e+01 1.7032e+02 5.4000e+02 5.0000e-01]
+[rep_nofilm_s1] it=60 t=1128s val_HV=1.8714
+[rep_nofilm_s1] it=60 t=1139s pg=-0.002 vf=0.383 ent=2.28 bc=4.83 F=[1.5850e+01 1.8719e+02 5.9901e+02 5.0000e-01]
+[rep_nofilm_s1] it=65 t=1184s pg=0.033 vf=0.378 ent=2.34 bc=4.48 F=[1.6240e+01 1.6861e+02 5.2446e+02 5.2000e-01]
+[rep_nofilm_s1] it=70 t=1229s pg=-0.040 vf=0.266 ent=2.25 bc=4.49 F=[1.5820e+01 1.8932e+02 6.1576e+02 5.0000e-01]
+[rep_nofilm_s1] it=75 t=1291s val_HV=1.8614
+[rep_nofilm_s1] it=75 t=1300s pg=0.006 vf=0.376 ent=2.19 bc=4.26 F=[1.5950e+01 1.5377e+02 5.3449e+02 5.3000e-01]
+[rep_nofilm_s1] it=80 t=1365s pg=-0.083 vf=0.543 ent=2.17 bc=4.58 F=[1.7100e+01 1.5967e+02 5.4872e+02 5.1000e-01]
+[rep_nofilm_s1] it=85 t=1451s pg=-0.007 vf=0.439 ent=2.32 bc=4.69 F=[1.6920e+01 1.8007e+02 6.3045e+02 5.0000e-01]
+[rep_nofilm_s1] it=90 t=1534s val_HV=1.7973
+[rep_nofilm_s1] it=90 t=1548s pg=0.025 vf=0.114 ent=2.15 bc=4.48 F=[ 16.81 165.69 547.78   0.57]
+[rep_nofilm_s1] it=95 t=1621s pg=-0.026 vf=0.446 ent=2.33 bc=4.58 F=[1.5360e+01 1.5583e+02 5.4195e+02 4.8000e-01]
+[rep_nofilm_s1] it=100 t=1674s pg=-0.018 vf=0.338 ent=2.20 bc=4.53 F=[1.6080e+01 1.8155e+02 5.7707e+02 5.3000e-01]
+[rep_nofilm_s1] it=105 t=1746s val_HV=1.8118
+[rep_nofilm_s1] it=105 t=1758s pg=-0.020 vf=0.195 ent=2.22 bc=3.96 F=[1.6630e+01 1.8147e+02 5.9792e+02 5.9000e-01]
+[rep_nofilm_s1] it=110 t=1846s pg=-0.028 vf=0.247 ent=2.22 bc=4.65 F=[1.6300e+01 1.7485e+02 5.5767e+02 5.1000e-01]
+[rep_nofilm_s1] it=115 t=1911s pg=-0.004 vf=0.194 ent=2.13 bc=4.37 F=[1.5860e+01 1.9415e+02 5.4822e+02 5.4000e-01]
+[rep_nofilm_s1] it=120 t=1983s val_HV=1.7005

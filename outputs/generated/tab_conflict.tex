@@ -1,0 +1,22 @@
+\begin{table}[htbp]
+\centering
+\caption{Real day versus carbon-inverted day (price-carbon correlation \confCorrPriceCoReal{} and \confCorrPriceCo{}). HV ratio against the pooled front of each condition and responsiveness $\rho_k$ of the weights, mean over instances and seeds. Rank correlation of $f_2$ and $f_3$ on the pooled front: \confCorrFrontReal{} (real) and \confCorrFront{} (inverted).}
+\label{tab:conflict}
+\scriptsize
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{llccccc}
+\toprule
+Day & Method & HV ratio & $\rho_1$ (mk.) & $\rho_2$ (cost) & $\rho_3$ (CO$_2$) & $\rho_4$ (risk) \\
+\midrule
+Real & DP-PreCo-GRL & 0.173 & -0.66 & +0.07 & +0.07 & +0.10 \\
+ & LS-GRL & 0.122 & -0.57 & +0.14 & +0.10 & +0.08 \\
+ & PWG & 0.014 & -0.82 & -0.03 & +0.03 & -0.36 \\
+ & NSGA-II & 0.764 & -0.73 & -0.55 & -0.52 & -0.69 \\
+\midrule
+Inverted & DP-PreCo-GRL & 0.377 & -0.68 & +0.05 & -0.07 & +0.15 \\
+ & LS-GRL & 0.285 & -0.45 & +0.11 & -0.01 & +0.04 \\
+ & PWG & 0.130 & -0.78 & -0.05 & -0.07 & -0.29 \\
+ & NSGA-II & 0.833 & -0.67 & -0.61 & -0.75 & -0.68 \\
+\bottomrule
+\end{tabular}
+\end{table}

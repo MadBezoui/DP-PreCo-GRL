@@ -1,0 +1,12 @@
+Mk03 done {'nsga2': np.float64(34.538094185599036)} elapsed=175s
+Mk08 done {'nsga2': np.float64(47.84750879440035)} elapsed=242s
+Mk10 done {'nsga2': np.float64(49.51709326620039)} elapsed=251s
+Mk09 done {'nsga2': np.float64(51.04297804100061)} elapsed=258s
+Mk01 done {'nsga2': np.float64(17.292522389799707)} elapsed=338s
+Mk06 done {'nsga2': np.float64(33.068583229600335)} elapsed=342s
+Mk02 done {'nsga2': np.float64(18.354833962600242)} elapsed=351s
+La21 done {'nsga2': np.float64(36.11403346460065)} elapsed=424s
+Mk04 done {'nsga2': np.float64(22.99285008000079)} elapsed=454s
+Mk05 done {'nsga2': np.float64(24.227204663999146)} elapsed=464s
+Mk07 done {'nsga2': np.float64(24.18793516060032)} elapsed=473s
+La16 done {'nsga2': np.float64(25.523833613999887)} elapsed=552s

@@ -1,0 +1,10 @@
+pool built in 16.3s
+expert 0/256 |front|=60 t=17s
+expert 32/256 |front|=60 t=37s
+expert 64/256 |front|=60 t=54s
+expert 96/256 |front|=60 t=70s
+expert 128/256 |front|=60 t=84s
+expert 160/256 |front|=38 t=100s
+expert 192/256 |front|=60 t=115s
+expert 224/256 |front|=40 t=130s
+done in 145s

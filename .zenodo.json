@@ -1,0 +1,9 @@
+{
+  "title": "MORL_FJSP: code, data and raw results for 'Preference-Conditioned Graph Reinforcement Learning for Energy-, Carbon- and Risk-Aware Flexible Job-Shop Scheduling with Fuzzy Processing Times: A Critical Evaluation'",
+  "upload_type": "software",
+  "creators": [{"name": "Bezoui, Madani", "affiliation": "LINEACT, CESI, Campus de Nancy, France"}],
+  "license": "MIT",
+  "keywords": ["flexible job-shop scheduling", "multi-objective reinforcement learning", "energy-aware scheduling", "fuzzy processing times", "credibility theory"],
+  "access_right": "open",
+  "description": "Simulator, baselines (dispatching rules, PWG, NSGA-II/III), preference-conditioned graph policy, PPO trainer, analysis scripts, LaTeX sources, trained checkpoints and per-run objective vectors of the manuscript. See README.md for the reproduction protocol and the cross-platform reproducibility notes."
+}

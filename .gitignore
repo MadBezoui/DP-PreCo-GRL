@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
+.venv/
+venv/
+results/cache/
+results/runs/*/model_*.pt
+results/runs_rep/*/model_*.pt

@@ -1,0 +1,19 @@
+\begin{table}[htbp]
+\centering
+\caption{Wall-clock seconds on one thread and an idle machine, mean and maximum over the 12 benchmarks.}
+\label{tab:runtime}
+\small
+\begin{tabular}{lcc}
+\toprule
+Task & Mean & Maximum (instance) \\
+\midrule
+Eight-rule pre-pass & 0.10 & 0.17 (\texttt{Mk09}) \\
+Policy, one preference, scale cached & 0.32 & 0.67 (\texttt{Mk10}) \\
+Policy, one preference, cold start & 0.42 & 0.84 (\texttt{Mk09}) \\
+Policy, 84 preferences, scale cached & 12.0 & 31.3 (\texttt{Mk09}) \\
+PWG, 84 preferences & 0.8 & 1.8 (\texttt{Mk10}) \\
+NSGA-II, 50{,}000 evaluations & 7.5 & 11.3 (\texttt{Mk10}) \\
+NSGA-III, 50{,}000 evaluations & 7.9 & 11.7 (\texttt{Mk10}) \\
+\bottomrule
+\end{tabular}
+\end{table}

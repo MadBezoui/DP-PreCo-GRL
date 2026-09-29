@@ -1,0 +1,17 @@
+\begin{table}[htbp]
+\centering
+\caption{Greedy inference (84 rollouts) versus greedy plus 8 sampled rollouts per preference (mean over benchmarks and seeds, time in seconds per instance).}
+\label{tab:sampling}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{llcccr}
+\toprule
+Policy & Inference & HV ratio $\uparrow$ & IGD$^+$ $\downarrow$ & \#ND & Time \\
+\midrule
+PreCo & greedy & 0.078 & 0.930 & 8 & 13.0 \\
+PreCo & greedy + sampling & 0.096 & 0.851 & 19 & 171.1 \\
+LS & greedy & 0.084 & 1.755 & 6 & 13.1 \\
+LS & greedy + sampling & 0.096 & 0.905 & 13 & 182.4 \\
+\bottomrule
+\end{tabular}
+\end{table}

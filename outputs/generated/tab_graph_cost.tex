@@ -1,0 +1,15 @@
+\begin{table}[htbp]
+\centering
+\caption{Size and cost of the graph encoder (mean over the benchmarks, one thread, Apple M1 Pro). Policy (1) and Policy (84): seconds for one rollout and for the sweep. Ratio: sweep time relative to the full model.}
+\label{tab:graphcost}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lrrrr}
+\toprule
+Model & Params & Policy (1) & Policy (84) & Ratio \\
+\midrule
+Full (graph attention) & 250{,}521 & 0.243 & 9.8 & 1.00 \\
+Flat (no message passing) & 166{,}425 & 0.103 & 4.5 & 0.46 \\
+\bottomrule
+\end{tabular}
+\end{table}

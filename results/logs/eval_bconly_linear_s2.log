@@ -1,0 +1,12 @@
+bconly_linear_s2 Mk01 wall=2.64s
+bconly_linear_s2 Mk02 wall=4.38s
+bconly_linear_s2 Mk03 wall=16.00s
+bconly_linear_s2 Mk04 wall=5.38s
+bconly_linear_s2 Mk05 wall=6.69s
+bconly_linear_s2 Mk06 wall=15.53s
+bconly_linear_s2 Mk07 wall=8.11s
+bconly_linear_s2 Mk08 wall=18.82s
+bconly_linear_s2 Mk09 wall=30.87s
+bconly_linear_s2 Mk10 wall=36.13s
+bconly_linear_s2 La16 wall=4.34s
+bconly_linear_s2 La21 wall=8.48s

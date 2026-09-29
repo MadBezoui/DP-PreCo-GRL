@@ -1,0 +1,22 @@
+\begin{table}[htbp]
+\centering
+\caption{Front quality on the 12 benchmarks with the real test day (mean over instances, standard deviation over training seeds or runs). Times are seconds per instance on one thread and include the policy sweep for hybrids.}
+\label{tab:main}
+\small
+\begin{tabular}{lcccc}
+\toprule
+Method & HV ratio & Rule-scaled HV & IGD$^+$ & Time (s) \\
+\midrule
+Dispatching rules & 0.006 & 1.32 & 1.66 & 0.1 \\
+PWG & 0.004 & 1.08 & 2.92 & 1.0 \\
+LS-GRL & 0.084\,$\pm$\,0.020 & 2.12 & 1.76 & 13.1 \\
+DP-PreCo-GRL & 0.078\,$\pm$\,0.026 & 2.18 & 0.93 & 13.0 \\
+NSGA-II & 0.422\,$\pm$\,0.030 & 3.81 & 0.31 & 10.9 \\
+NSGA-III & 0.438\,$\pm$\,0.029 & 3.76 & 0.30 & 12.6 \\
+LS-GRL + NSGA-II & 0.527\,$\pm$\,0.040 & 3.88 & 0.20 & 20.7 \\
+DP-PreCo-GRL + NSGA-II & 0.512\,$\pm$\,0.040 & 3.91 & 0.26 & 20.7 \\
+LS-GRL + NSGA-III & 0.535\,$\pm$\,0.057 & 3.85 & 0.21 & 21.0 \\
+DP-PreCo-GRL + NSGA-III & 0.512\,$\pm$\,0.046 & 3.85 & 0.25 & 21.0 \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,24 @@
+\begin{table}[htbp]
+\centering
+\caption{Secondary indicators of the original ablation: IGD$^+$ and regret of the achievement function.}
+\label{tab:ablation2}
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{lcc}
+\toprule
+Variant & IGD$^+$ $\downarrow$ & ASF regret $\downarrow$ \\
+\midrule
+Full DP-PreCo-GRL & 0.930 & 0.815 \\
+LS-GRL (linear comb.) & 1.755 & 0.822 \\
+w/o graph attention & 0.914 & 0.788 \\
+w/o FiLM & 1.655 & 0.810 \\
+w/o criteria head & 1.040 & 0.790 \\
+w/o expert pool & 1.960 & 0.881 \\
+w/o elite pool & 0.815 & 0.817 \\
+w/o postponement & 0.935 & 0.802 \\
+w/o credibility mask & 0.859 & 0.810 \\
+BC only, PreCo targets & 0.941 & 0.813 \\
+BC only, LS targets & 2.783 & 0.841 \\
+\bottomrule
+\end{tabular}
+\end{table}

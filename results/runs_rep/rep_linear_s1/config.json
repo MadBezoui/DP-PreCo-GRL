@@ -1,0 +1,50 @@
+{
+ "name": "rep_linear_s1",
+ "mode": "linear",
+ "iters": 120,
+ "n_envs": 32,
+ "n_groups": 8,
+ "lr": 0.0001,
+ "adv_clip": 4.0,
+ "epochs": 3,
+ "minibatch": 256,
+ "clip": 0.2,
+ "ent_coef": [
+  0.01,
+  0.001
+ ],
+ "vf_coef": 0.5,
+ "max_grad": 0.5,
+ "gae_lambda": 0.95,
+ "lam": [
+  1.0,
+  8.0
+ ],
+ "preco_norm": true,
+ "bc_exp": [
+  1.0,
+  0.0
+ ],
+ "bc_elite": [
+  0.5,
+  0.02
+ ],
+ "bc_episodes": 8,
+ "bc_samples": 32,
+ "max_transitions": 1024,
+ "pretrain_iters": 40,
+ "pretrain_lr": 0.001,
+ "pretrain_episodes": 16,
+ "elite_cap": 24,
+ "gat": true,
+ "film": true,
+ "crit": true,
+ "delay": true,
+ "mask_capacity": true,
+ "d_model": 64,
+ "seed": 1,
+ "val_every": 15,
+ "threads": 1,
+ "out_dir": "results/runs_rep",
+ "extra": {}
+}

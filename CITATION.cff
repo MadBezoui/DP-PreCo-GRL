@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this software or its data, please cite the manuscript and this repository."
+title: "MORL_FJSP: preference-conditioned graph RL for energy-, carbon- and risk-aware flexible job-shop scheduling (code, data and raw results)"
+type: software
+authors:
+  - family-names: Bezoui
+    given-names: Madani
+    affiliation: "LINEACT, CESI, Campus de Nancy, France"
+    email: mbezoui@cesi.fr
+repository-code: "https://github.com/MadBezoui/DP-PreCo-GRL"
+license: MIT
+keywords:
+  - flexible job-shop scheduling
+  - multi-objective reinforcement learning
+  - energy-aware scheduling
+  - fuzzy processing times
+  - credibility theory
+abstract: >-
+  Code, benchmark annotations, raw Energy-Charts snapshot, trained checkpoints and raw results of the
+  manuscript "Preference-Conditioned Graph Reinforcement Learning for Energy-, Carbon- and Risk-Aware
+  Flexible Job-Shop Scheduling with Fuzzy Processing Times: A Critical Evaluation".

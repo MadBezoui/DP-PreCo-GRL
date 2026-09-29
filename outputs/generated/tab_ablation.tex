@@ -1,0 +1,24 @@
+\begin{table}[htbp]
+\centering
+\caption{Ablation of the original run (policy alone, mean over the 12 benchmarks, standard deviation over training seeds, two seeds per ablated variant). $p$: Wilcoxon test against the full model, Holm-corrected. Infeas.: share of rollouts ending in a forced-fallback violation.}
+\label{tab:ablation}
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{lccc}
+\toprule
+Variant & HV ratio $\uparrow$ & $p$ & Infeas. \\
+\midrule
+Full DP-PreCo-GRL & 0.078\,$\pm$\,0.026 & - & 0.9\% \\
+LS-GRL (linear comb.) & 0.084\,$\pm$\,0.020 & 1.000 & 0.9\% \\
+w/o graph attention & 0.096\,$\pm$\,0.006 & 1.000 & 0.7\% \\
+w/o FiLM & 0.038\,$\pm$\,0.003 & 0.026 & 1.5\% \\
+w/o criteria head & 0.059\,$\pm$\,0.001 & 1.000 & 0.4\% \\
+w/o expert pool & 0.007\,$\pm$\,0.001 & 0.010 & 4.6\% \\
+w/o elite pool & 0.094\,$\pm$\,0.016 & 1.000 & 1.8\% \\
+w/o postponement & 0.085\,$\pm$\,0.011 & 1.000 & 0.9\% \\
+w/o credibility mask & 0.124\,$\pm$\,0.018 & 0.472 & 1.2\% \\
+BC only, PreCo targets & 0.080\,$\pm$\,0.027 & 1.000 & 0.5\% \\
+BC only, LS targets & 0.053\,$\pm$\,0.018 & 0.039 & 1.5\% \\
+\bottomrule
+\end{tabular}
+\end{table}

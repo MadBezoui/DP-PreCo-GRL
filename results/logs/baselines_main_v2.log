@@ -1,0 +1,12 @@
+Mk08 done {'nsga2': np.float64(12.795043821900071), 'nsga3': np.float64(18.882900326900106)} elapsed=322s
+Mk09 done {'nsga2': np.float64(13.359909390499798), 'nsga3': np.float64(20.006864885699905)} elapsed=340s
+Mk10 done {'nsga2': np.float64(13.56178467009995), 'nsga3': np.float64(19.811440069799936)} elapsed=341s
+Mk03 done {'nsga2': np.float64(12.874640030899991), 'nsga3': np.float64(13.070151808400169)} elapsed=586s
+Mk06 done {'nsga2': np.float64(12.201224539299892), 'nsga3': np.float64(13.04149565789994)} elapsed=598s
+La21 done {'nsga2': np.float64(13.64523687919991), 'nsga3': np.float64(14.313764557500054)} elapsed=625s
+Mk01 done {'nsga2': np.float64(6.7152261374000775), 'nsga3': np.float64(7.4555850237999035)} elapsed=729s
+Mk02 done {'nsga2': np.float64(6.775851032899846), 'nsga3': np.float64(7.414371520199984)} elapsed=742s
+Mk04 done {'nsga2': np.float64(9.0927055389001), 'nsga3': np.float64(9.395413325599748)} elapsed=812s
+Mk05 done {'nsga2': np.float64(9.60302050650007), 'nsga3': np.float64(10.277391036100017)} elapsed=930s
+Mk07 done {'nsga2': np.float64(9.551368344399815), 'nsga3': np.float64(9.83702559860003)} elapsed=940s
+La16 done {'nsga2': np.float64(10.024093985599938), 'nsga3': np.float64(7.5580274101000215)} elapsed=990s

@@ -1,0 +1,19 @@
+\begin{table*}[htbp]
+\centering
+\caption{Monte-Carlo feasibility of one policy (1{,}008 schedules with 200 draws each, \credDistinctSeven{} distinct at $\beta=0.7$). Execution level: share of feasible executions with a 95\% cluster-bootstrap interval. Schedule level: schedules feasible in all draws with Clopper-Pearson (CP) and bootstrap intervals.}
+\label{tab:cred}
+\scriptsize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{clccccc}
+\toprule
+$\beta$ & Model & Failed / executions & Execution level [\%] (boot.\ 95\% CI) & Worst inst. / sched. [\%] & All-200-feasible schedules & CP / boot.\ 95\% CI [\%] \\
+\midrule
+0.7 & Triangular & 1 / 201{,}600 & 99.9995 [99.998, 100.000] & 99.99 / 99.5 & 1{,}007 / 1{,}008 (99.9\%) & [99.4, 100.0] / [99.5, 100.0] \\
+0.7 & Lognormal & 0 / 201{,}600 & 100.0000 [100.000, 100.000] & 100.00 / 100.0 & 1{,}008 / 1{,}008 (100.0\%) & [99.6, 100.0] / [100.0, 100.0] \\
+0.7 & Uniform & 168 / 201{,}600 & 99.9167 [99.766, 100.000] & 99.18 / 92.0 & 970 / 1{,}008 (96.2\%) & [94.9, 97.3] / [89.4, 100.0] \\
+0.9 & Triangular & 0 / 201{,}600 & 100.0000 [100.000, 100.000] & 100.00 / 100.0 & 1{,}008 / 1{,}008 (100.0\%) & [99.6, 100.0] / [100.0, 100.0] \\
+0.9 & Lognormal & 0 / 201{,}600 & 100.0000 [100.000, 100.000] & 100.00 / 100.0 & 1{,}008 / 1{,}008 (100.0\%) & [99.6, 100.0] / [100.0, 100.0] \\
+0.9 & Uniform & 0 / 201{,}600 & 100.0000 [100.000, 100.000] & 100.00 / 100.0 & 1{,}008 / 1{,}008 (100.0\%) & [99.6, 100.0] / [100.0, 100.0] \\
+\bottomrule
+\end{tabular}
+\end{table*}

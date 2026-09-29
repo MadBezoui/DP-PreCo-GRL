@@ -1,0 +1,41 @@
+[rep_linear_s4] pretrain 0 loss=4.621 t=4s
+[rep_linear_s4] pretrain 10 loss=3.404 t=31s
+[rep_linear_s4] pretrain 20 loss=3.837 t=57s
+[rep_linear_s4] pretrain 30 loss=2.806 t=87s
+[rep_linear_s4] pretrain 39 loss=2.663 t=109s
+[rep_linear_s4] it=0 t=132s val_HV=1.9423
+/Users/madanibezoui/Documents/Projects/BrainStorming/morl_fjsp/train.py:395: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /Users/runner/work/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:821.)
+  stats.append((float(pg), float(vf), float(ent.mean()), bc_val))
+[rep_linear_s4] it=0 t=141s pg=-0.055 vf=0.494 ent=2.12 bc=4.49 F=[ 15.52 162.01 525.41   0.56]
+[rep_linear_s4] it=5 t=191s pg=-0.034 vf=0.231 ent=2.34 bc=4.34 F=[ 15.89 149.08 540.32   0.58]
+[rep_linear_s4] it=10 t=234s pg=0.013 vf=0.383 ent=2.13 bc=4.11 F=[1.7900e+01 1.6290e+02 5.3865e+02 5.1000e-01]
+[rep_linear_s4] it=15 t=303s val_HV=1.9602
+[rep_linear_s4] it=15 t=314s pg=-0.001 vf=0.684 ent=2.18 bc=4.55 F=[1.8100e+01 1.6075e+02 5.3864e+02 5.3000e-01]
+[rep_linear_s4] it=20 t=362s pg=0.051 vf=0.297 ent=2.24 bc=4.41 F=[1.5610e+01 1.9214e+02 6.1504e+02 5.3000e-01]
+[rep_linear_s4] it=25 t=413s pg=-0.010 vf=0.331 ent=2.17 bc=4.50 F=[1.6370e+01 1.5775e+02 5.3750e+02 5.0000e-01]
+[rep_linear_s4] it=30 t=474s val_HV=1.9909
+[rep_linear_s4] it=30 t=484s pg=0.007 vf=0.311 ent=2.01 bc=4.51 F=[1.4950e+01 1.5478e+02 5.0256e+02 5.0000e-01]
+[rep_linear_s4] it=35 t=533s pg=0.016 vf=0.377 ent=2.17 bc=4.43 F=[1.7660e+01 1.7536e+02 5.3745e+02 5.3000e-01]
+[rep_linear_s4] it=40 t=586s pg=-0.017 vf=0.123 ent=2.37 bc=4.28 F=[1.8000e+01 1.6383e+02 5.7393e+02 5.7000e-01]
+[rep_linear_s4] it=45 t=651s val_HV=1.8949
+[rep_linear_s4] it=45 t=661s pg=-0.004 vf=0.129 ent=2.21 bc=4.23 F=[1.6340e+01 1.7523e+02 5.6523e+02 5.3000e-01]
+[rep_linear_s4] it=50 t=712s pg=0.015 vf=0.382 ent=2.17 bc=4.47 F=[1.6190e+01 1.9201e+02 6.0729e+02 5.1000e-01]
+[rep_linear_s4] it=55 t=762s pg=-0.014 vf=0.584 ent=2.24 bc=4.15 F=[1.6690e+01 1.8425e+02 5.9108e+02 5.1000e-01]
+[rep_linear_s4] it=60 t=817s val_HV=1.9947
+[rep_linear_s4] it=60 t=826s pg=0.004 vf=0.064 ent=2.07 bc=4.85 F=[ 15.79 167.78 505.41   0.56]
+[rep_linear_s4] it=65 t=871s pg=0.013 vf=0.244 ent=2.17 bc=3.98 F=[1.5960e+01 1.6990e+02 5.4812e+02 4.9000e-01]
+[rep_linear_s4] it=70 t=915s pg=-0.002 vf=0.457 ent=2.11 bc=4.60 F=[1.6330e+01 1.7569e+02 5.8297e+02 4.8000e-01]
+[rep_linear_s4] it=75 t=971s val_HV=1.9453
+[rep_linear_s4] it=75 t=982s pg=-0.019 vf=0.136 ent=2.22 bc=4.10 F=[1.6670e+01 1.8353e+02 5.5565e+02 5.1000e-01]
+[rep_linear_s4] it=80 t=1031s pg=-0.034 vf=0.236 ent=2.14 bc=4.69 F=[ 15.92 165.83 538.77   0.54]
+[rep_linear_s4] it=85 t=1085s pg=-0.036 vf=0.191 ent=2.17 bc=4.57 F=[1.7790e+01 1.8738e+02 5.8371e+02 4.9000e-01]
+[rep_linear_s4] it=90 t=1143s val_HV=2.0625
+[rep_linear_s4] it=90 t=1151s pg=0.070 vf=0.282 ent=2.18 bc=4.52 F=[2.0230e+01 2.0375e+02 6.1526e+02 5.5000e-01]
+[rep_linear_s4] it=95 t=1201s pg=-0.021 vf=0.203 ent=2.26 bc=4.44 F=[1.7990e+01 1.8620e+02 6.2609e+02 5.1000e-01]
+[rep_linear_s4] it=100 t=1241s pg=0.003 vf=0.334 ent=2.09 bc=4.49 F=[1.5520e+01 1.7307e+02 5.2100e+02 5.0000e-01]
+[rep_linear_s4] it=105 t=1289s val_HV=2.1516
+[rep_linear_s4] it=105 t=1297s pg=0.019 vf=0.297 ent=2.16 bc=4.48 F=[1.5420e+01 1.7712e+02 5.6930e+02 4.6000e-01]
+[rep_linear_s4] it=110 t=1333s pg=-0.023 vf=0.169 ent=2.30 bc=4.45 F=[1.6670e+01 1.7224e+02 5.4187e+02 5.3000e-01]
+[rep_linear_s4] it=115 t=1370s pg=0.026 vf=0.225 ent=2.19 bc=4.20 F=[1.6060e+01 1.6560e+02 5.4549e+02 5.4000e-01]
+[rep_linear_s4] it=120 t=1416s val_HV=1.9081

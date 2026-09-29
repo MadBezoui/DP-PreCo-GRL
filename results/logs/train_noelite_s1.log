@@ -1,0 +1,41 @@
+[noelite_s1] pretrain 0 loss=5.805 t=3s
+[noelite_s1] pretrain 10 loss=3.047 t=21s
+[noelite_s1] pretrain 20 loss=4.123 t=39s
+[noelite_s1] pretrain 30 loss=3.267 t=58s
+[noelite_s1] pretrain 39 loss=2.777 t=76s
+[noelite_s1] it=0 t=94s val_HV=2.0631
+/home/user/MORL_FJSP/morl_fjsp/train.py:387: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  stats.append((float(pg), float(vf), float(ent.mean()), bc_val))
+[noelite_s1] it=0 t=101s pg=-0.025 vf=0.795 ent=2.20 bc=2.21 F=[1.6490e+01 1.8722e+02 5.8734e+02 5.0000e-01]
+[noelite_s1] it=5 t=135s pg=0.057 vf=0.248 ent=2.22 bc=2.28 F=[1.5480e+01 1.8506e+02 6.4133e+02 5.7000e-01]
+[noelite_s1] it=10 t=168s pg=-0.017 vf=0.024 ent=2.21 bc=2.08 F=[ 15.88 185.49 580.79   0.59]
+[noelite_s1] it=15 t=215s val_HV=1.9437
+[noelite_s1] it=15 t=221s pg=0.002 vf=0.623 ent=2.02 bc=2.12 F=[1.6300e+01 1.7931e+02 5.2439e+02 5.1000e-01]
+[noelite_s1] it=20 t=254s pg=0.025 vf=1.361 ent=2.04 bc=2.04 F=[1.5190e+01 1.3797e+02 5.0170e+02 4.4000e-01]
+[noelite_s1] it=25 t=288s pg=-0.007 vf=0.503 ent=2.28 bc=2.40 F=[1.8990e+01 1.7731e+02 5.7950e+02 5.3000e-01]
+[noelite_s1] it=30 t=333s val_HV=1.9100
+[noelite_s1] it=30 t=340s pg=0.015 vf=0.123 ent=2.23 bc=2.33 F=[1.6180e+01 1.9908e+02 5.9609e+02 5.5000e-01]
+[noelite_s1] it=35 t=373s pg=0.021 vf=0.303 ent=2.17 bc=2.16 F=[1.6340e+01 1.7486e+02 5.7924e+02 5.6000e-01]
+[noelite_s1] it=40 t=408s pg=0.021 vf=0.350 ent=2.27 bc=2.56 F=[1.5890e+01 2.0604e+02 6.2454e+02 5.1000e-01]
+[noelite_s1] it=45 t=452s val_HV=1.9797
+[noelite_s1] it=45 t=458s pg=-0.011 vf=0.298 ent=2.25 bc=2.39 F=[1.7960e+01 1.7633e+02 5.5345e+02 5.0000e-01]
+[noelite_s1] it=50 t=489s pg=0.000 vf=0.280 ent=2.14 bc=2.14 F=[1.6240e+01 1.8971e+02 6.2187e+02 4.7000e-01]
+[noelite_s1] it=55 t=522s pg=-0.035 vf=0.353 ent=2.24 bc=2.49 F=[1.5780e+01 1.8823e+02 6.1454e+02 5.0000e-01]
+[noelite_s1] it=60 t=568s val_HV=2.0543
+[noelite_s1] it=60 t=575s pg=0.042 vf=0.230 ent=2.10 bc=1.99 F=[1.4860e+01 1.7772e+02 5.7010e+02 5.0000e-01]
+[noelite_s1] it=65 t=610s pg=-0.001 vf=0.282 ent=2.11 bc=2.19 F=[1.5180e+01 1.7695e+02 5.3133e+02 5.0000e-01]
+[noelite_s1] it=70 t=641s pg=-0.009 vf=0.375 ent=2.20 bc=1.91 F=[1.6390e+01 1.6771e+02 5.7538e+02 5.4000e-01]
+[noelite_s1] it=75 t=687s val_HV=2.1787
+[noelite_s1] it=75 t=694s pg=0.024 vf=0.401 ent=2.19 bc=2.39 F=[1.6880e+01 1.7176e+02 5.6113e+02 4.7000e-01]
+[noelite_s1] it=80 t=730s pg=-0.030 vf=0.595 ent=2.11 bc=1.95 F=[1.5720e+01 1.6674e+02 5.1512e+02 4.8000e-01]
+[noelite_s1] it=85 t=763s pg=-0.027 vf=0.516 ent=2.16 bc=2.14 F=[1.5580e+01 1.6530e+02 5.6415e+02 5.2000e-01]
+[noelite_s1] it=90 t=809s val_HV=1.8795
+[noelite_s1] it=90 t=816s pg=-0.000 vf=0.260 ent=2.22 bc=2.12 F=[1.6210e+01 2.0557e+02 6.2943e+02 5.3000e-01]
+[noelite_s1] it=95 t=849s pg=-0.003 vf=0.339 ent=1.96 bc=2.32 F=[1.5200e+01 1.8803e+02 5.6384e+02 4.8000e-01]
+[noelite_s1] it=100 t=884s pg=0.015 vf=0.366 ent=2.23 bc=2.28 F=[1.8630e+01 2.1420e+02 6.6253e+02 5.1000e-01]
+[noelite_s1] it=105 t=932s val_HV=1.9831
+[noelite_s1] it=105 t=938s pg=-0.004 vf=0.463 ent=2.15 bc=2.24 F=[1.9430e+01 1.6822e+02 5.3516e+02 5.2000e-01]
+[noelite_s1] it=110 t=973s pg=-0.009 vf=0.105 ent=2.18 bc=2.44 F=[1.5850e+01 1.9742e+02 6.3490e+02 5.5000e-01]
+[noelite_s1] it=115 t=1007s pg=0.001 vf=0.230 ent=2.03 bc=2.38 F=[1.6620e+01 1.8259e+02 5.9145e+02 5.4000e-01]
+[noelite_s1] it=120 t=1056s val_HV=1.9052

@@ -1,0 +1,12 @@
+nodelay_s1 Mk01 wall=2.47s
+nodelay_s1 Mk02 wall=3.59s
+nodelay_s1 Mk03 wall=12.89s
+nodelay_s1 Mk04 wall=4.52s
+nodelay_s1 Mk05 wall=5.06s
+nodelay_s1 Mk06 wall=14.87s
+nodelay_s1 Mk07 wall=7.00s
+nodelay_s1 Mk08 wall=17.43s
+nodelay_s1 Mk09 wall=28.78s
+nodelay_s1 Mk10 wall=32.74s
+nodelay_s1 La16 wall=4.35s
+nodelay_s1 La21 wall=8.36s

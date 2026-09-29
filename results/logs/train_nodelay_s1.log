@@ -1,0 +1,41 @@
+[nodelay_s1] pretrain 0 loss=4.352 t=3s
+[nodelay_s1] pretrain 10 loss=4.284 t=20s
+[nodelay_s1] pretrain 20 loss=2.941 t=37s
+[nodelay_s1] pretrain 30 loss=3.214 t=56s
+[nodelay_s1] pretrain 39 loss=3.988 t=71s
+[nodelay_s1] it=0 t=87s val_HV=1.9838
+/home/user/MORL_FJSP/morl_fjsp/train.py:387: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  stats.append((float(pg), float(vf), float(ent.mean()), bc_val))
+[nodelay_s1] it=0 t=96s pg=0.013 vf=0.524 ent=2.25 bc=4.21 F=[1.7680e+01 1.8999e+02 6.4460e+02 6.4000e-01]
+[nodelay_s1] it=5 t=129s pg=0.000 vf=0.826 ent=2.16 bc=4.09 F=[1.5950e+01 1.7558e+02 5.7685e+02 5.1000e-01]
+[nodelay_s1] it=10 t=164s pg=0.003 vf=0.803 ent=2.28 bc=4.50 F=[1.6290e+01 1.8416e+02 6.1094e+02 5.7000e-01]
+[nodelay_s1] it=15 t=206s val_HV=2.0834
+[nodelay_s1] it=15 t=214s pg=-0.000 vf=0.427 ent=2.24 bc=4.53 F=[ 15.64 172.02 535.27   0.57]
+[nodelay_s1] it=20 t=247s pg=-0.007 vf=0.377 ent=2.07 bc=4.22 F=[1.5380e+01 1.8528e+02 5.4148e+02 5.4000e-01]
+[nodelay_s1] it=25 t=281s pg=-0.018 vf=0.336 ent=2.15 bc=4.29 F=[1.5990e+01 1.8098e+02 6.0356e+02 5.3000e-01]
+[nodelay_s1] it=30 t=322s val_HV=2.0626
+[nodelay_s1] it=30 t=328s pg=-0.041 vf=0.440 ent=2.03 bc=4.52 F=[1.6060e+01 1.8434e+02 5.8747e+02 5.1000e-01]
+[nodelay_s1] it=35 t=365s pg=0.006 vf=0.227 ent=2.12 bc=3.99 F=[1.6480e+01 1.8644e+02 5.8220e+02 5.4000e-01]
+[nodelay_s1] it=40 t=397s pg=-0.020 vf=0.444 ent=2.17 bc=4.22 F=[1.5890e+01 1.8862e+02 6.0202e+02 5.3000e-01]
+[nodelay_s1] it=45 t=438s val_HV=2.0336
+[nodelay_s1] it=45 t=446s pg=-0.042 vf=0.172 ent=2.21 bc=4.51 F=[1.5550e+01 1.5042e+02 5.9055e+02 5.2000e-01]
+[nodelay_s1] it=50 t=481s pg=-0.018 vf=0.624 ent=2.07 bc=4.56 F=[1.5140e+01 1.7840e+02 5.6502e+02 4.5000e-01]
+[nodelay_s1] it=55 t=513s pg=-0.030 vf=0.257 ent=2.16 bc=4.32 F=[1.5220e+01 1.9073e+02 6.1860e+02 5.3000e-01]
+[nodelay_s1] it=60 t=556s val_HV=1.9678
+[nodelay_s1] it=60 t=563s pg=-0.025 vf=0.184 ent=2.26 bc=4.36 F=[1.5240e+01 1.9536e+02 6.0525e+02 5.5000e-01]
+[nodelay_s1] it=65 t=598s pg=0.010 vf=0.324 ent=2.11 bc=4.29 F=[1.6200e+01 1.7336e+02 5.2143e+02 5.2000e-01]
+[nodelay_s1] it=70 t=630s pg=0.030 vf=0.374 ent=2.12 bc=3.68 F=[1.6500e+01 1.8152e+02 5.9436e+02 5.0000e-01]
+[nodelay_s1] it=75 t=668s val_HV=1.8959
+[nodelay_s1] it=75 t=674s pg=0.028 vf=0.068 ent=2.00 bc=4.25 F=[ 15.96 163.86 538.32   0.57]
+[nodelay_s1] it=80 t=706s pg=0.011 vf=0.046 ent=2.18 bc=4.29 F=[ 16.02 191.6  565.67   0.57]
+[nodelay_s1] it=85 t=736s pg=0.009 vf=0.310 ent=1.97 bc=4.79 F=[ 15.2  168.89 525.42   0.53]
+[nodelay_s1] it=90 t=776s val_HV=2.0086
+[nodelay_s1] it=90 t=783s pg=0.022 vf=0.190 ent=2.10 bc=4.29 F=[1.5430e+01 1.8153e+02 5.8654e+02 4.9000e-01]
+[nodelay_s1] it=95 t=815s pg=0.001 vf=0.439 ent=2.14 bc=4.45 F=[1.6330e+01 1.7906e+02 5.7841e+02 4.8000e-01]
+[nodelay_s1] it=100 t=846s pg=-0.042 vf=0.277 ent=2.16 bc=4.61 F=[1.6570e+01 1.6746e+02 6.1450e+02 5.2000e-01]
+[nodelay_s1] it=105 t=885s val_HV=2.0165
+[nodelay_s1] it=105 t=892s pg=0.039 vf=0.237 ent=2.14 bc=4.39 F=[1.6550e+01 1.9215e+02 5.7810e+02 5.2000e-01]
+[nodelay_s1] it=110 t=924s pg=-0.004 vf=0.016 ent=2.12 bc=4.37 F=[1.5840e+01 1.8891e+02 6.1849e+02 5.6000e-01]
+[nodelay_s1] it=115 t=957s pg=0.028 vf=0.221 ent=2.14 bc=3.99 F=[1.5500e+01 1.6213e+02 5.4677e+02 5.1000e-01]
+[nodelay_s1] it=120 t=996s val_HV=1.9278

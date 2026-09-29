@@ -1,0 +1,260 @@
+{
+ "0.7_triangular": {
+  "n_sched": 1008,
+  "n_exec": 201600,
+  "exec_ok": 201599,
+  "exec_fail": 1,
+  "exec_rate": 0.9999950396825397,
+  "exec_ci_iid": [
+   0.999972363193364,
+   0.9999998744156429
+  ],
+  "strict_ok": 1007,
+  "strict_rate": 0.9990079365079365,
+  "strict_ci_iid": [
+   0.9944850941527695,
+   0.9999748834424257
+  ],
+  "worst_schedule": 0.995,
+  "worst_instance": 0.9999404761904762,
+  "inst_rate": [
+   1.0,
+   1.0,
+   1.0,
+   0.9999404761904762,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "n_inst_with_failure": 1,
+  "n_inst": 12,
+  "exec_ci_cluster": [
+   0.9999751984126984,
+   1.0
+  ],
+  "strict_ci_cluster": [
+   0.9950396825396826,
+   1.0
+  ]
+ },
+ "0.7_lognormal": {
+  "n_sched": 1008,
+  "n_exec": 201600,
+  "exec_ok": 201600,
+  "exec_fail": 0,
+  "exec_rate": 1.0,
+  "exec_ci_iid": [
+   0.9999817021542424,
+   1.0
+  ],
+  "strict_ok": 1008,
+  "strict_rate": 1.0,
+  "strict_ci_iid": [
+   0.9963470855514797,
+   1.0
+  ],
+  "worst_schedule": 1.0,
+  "worst_instance": 1.0,
+  "inst_rate": [
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "n_inst_with_failure": 0,
+  "n_inst": 12,
+  "exec_ci_cluster": [
+   1.0,
+   1.0
+  ],
+  "strict_ci_cluster": [
+   1.0,
+   1.0
+  ]
+ },
+ "0.7_uniform": {
+  "n_sched": 1008,
+  "n_exec": 201600,
+  "exec_ok": 201432,
+  "exec_fail": 168,
+  "exec_rate": 0.9991666666666666,
+  "exec_ci_iid": [
+   0.9990307550554642,
+   0.9992878754442512
+  ],
+  "strict_ok": 970,
+  "strict_rate": 0.9623015873015873,
+  "strict_ci_iid": [
+   0.9486209719963035,
+   0.9731867976554701
+  ],
+  "worst_schedule": 0.92,
+  "worst_instance": 0.9918452380952381,
+  "inst_rate": [
+   1.0,
+   1.0,
+   1.0,
+   0.9981547619047619,
+   1.0,
+   0.9918452380952381,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "n_inst_with_failure": 2,
+  "n_inst": 12,
+  "exec_ci_cluster": [
+   0.9976587301587302,
+   1.0
+  ],
+  "strict_ci_cluster": [
+   0.8938492063492064,
+   1.0
+  ]
+ },
+ "0.9_triangular": {
+  "n_sched": 1008,
+  "n_exec": 201600,
+  "exec_ok": 201600,
+  "exec_fail": 0,
+  "exec_rate": 1.0,
+  "exec_ci_iid": [
+   0.9999817021542424,
+   1.0
+  ],
+  "strict_ok": 1008,
+  "strict_rate": 1.0,
+  "strict_ci_iid": [
+   0.9963470855514797,
+   1.0
+  ],
+  "worst_schedule": 1.0,
+  "worst_instance": 1.0,
+  "inst_rate": [
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "n_inst_with_failure": 0,
+  "n_inst": 12,
+  "exec_ci_cluster": [
+   1.0,
+   1.0
+  ],
+  "strict_ci_cluster": [
+   1.0,
+   1.0
+  ]
+ },
+ "0.9_lognormal": {
+  "n_sched": 1008,
+  "n_exec": 201600,
+  "exec_ok": 201600,
+  "exec_fail": 0,
+  "exec_rate": 1.0,
+  "exec_ci_iid": [
+   0.9999817021542424,
+   1.0
+  ],
+  "strict_ok": 1008,
+  "strict_rate": 1.0,
+  "strict_ci_iid": [
+   0.9963470855514797,
+   1.0
+  ],
+  "worst_schedule": 1.0,
+  "worst_instance": 1.0,
+  "inst_rate": [
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "n_inst_with_failure": 0,
+  "n_inst": 12,
+  "exec_ci_cluster": [
+   1.0,
+   1.0
+  ],
+  "strict_ci_cluster": [
+   1.0,
+   1.0
+  ]
+ },
+ "0.9_uniform": {
+  "n_sched": 1008,
+  "n_exec": 201600,
+  "exec_ok": 201600,
+  "exec_fail": 0,
+  "exec_rate": 1.0,
+  "exec_ci_iid": [
+   0.9999817021542424,
+   1.0
+  ],
+  "strict_ok": 1008,
+  "strict_rate": 1.0,
+  "strict_ci_iid": [
+   0.9963470855514797,
+   1.0
+  ],
+  "worst_schedule": 1.0,
+  "worst_instance": 1.0,
+  "inst_rate": [
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "n_inst_with_failure": 0,
+  "n_inst": 12,
+  "exec_ci_cluster": [
+   1.0,
+   1.0
+  ],
+  "strict_ci_cluster": [
+   1.0,
+   1.0
+  ]
+ }
+}

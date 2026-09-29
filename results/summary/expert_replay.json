@@ -1,0 +1,9 @@
+{
+ "archive": "results/cache",
+ "scenarios": 256,
+ "schedules": 14375,
+ "integer_schedule_mismatches": 0,
+ "objective_mismatches_above_1e12": 0,
+ "max_relative_objective_difference": 1.4742469437556039e-15,
+ "scenarios_with_unavailable_action": 0
+}

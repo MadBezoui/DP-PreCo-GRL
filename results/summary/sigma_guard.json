@@ -1,0 +1,38 @@
+{
+ "benchmarks": {
+  "n_scenarios": 12,
+  "n_pairs": 48,
+  "floor_active_per_objective": [
+   0,
+   0,
+   0,
+   0
+  ],
+  "floor_active_pairs": 0,
+  "zero_range_pairs": 0
+ },
+ "training": {
+  "n_scenarios": 256,
+  "n_pairs": 1024,
+  "floor_active_per_objective": [
+   0,
+   0,
+   0,
+   33
+  ],
+  "floor_active_pairs": 33,
+  "zero_range_pairs": 3
+ },
+ "validation": {
+  "n_scenarios": 16,
+  "n_pairs": 64,
+  "floor_active_per_objective": [
+   0,
+   0,
+   0,
+   2
+  ],
+  "floor_active_pairs": 2,
+  "zero_range_pairs": 0
+ }
+}

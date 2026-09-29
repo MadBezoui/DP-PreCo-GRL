@@ -1,0 +1,21 @@
+\begin{table}[htbp]
+\centering
+\caption{Responsiveness of each objective to its weight: Spearman correlation between $w_k$ and $f_k$ over the 84 preferences, mean over instances and runs ($-1$: raising the weight always improves the objective). Test: benchmarks. Validation: synthetic scenarios.}
+\label{tab:resp}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{llcccc}
+\toprule
+Method & Data & Makespan & Cost & CO$_2$ & OWA risk \\
+\midrule
+PreCo & test & -0.69 & +0.11 & +0.08 & +0.11 \\
+ & validation & -0.44 & +0.01 & -0.03 & +0.04 \\
+LS & test & -0.50 & +0.15 & +0.09 & +0.07 \\
+ & validation & -0.33 & -0.02 & +0.04 & -0.03 \\
+PWG & test & -0.82 & -0.03 & +0.03 & -0.36 \\
+ & validation & -0.82 & +0.19 & +0.21 & -0.22 \\
+NSGA-II (a posteriori) & test & -0.66 & -0.56 & -0.56 & -0.66 \\
+NSGA-III (a posteriori) & test & -0.65 & -0.54 & -0.52 & -0.65 \\
+\bottomrule
+\end{tabular}
+\end{table}

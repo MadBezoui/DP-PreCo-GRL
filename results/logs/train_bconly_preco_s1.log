@@ -1,0 +1,6 @@
+[bconly_preco_s1] pretrain 0 loss=5.805 t=4s
+[bconly_preco_s1] pretrain 10 loss=3.047 t=21s
+[bconly_preco_s1] pretrain 20 loss=4.123 t=39s
+[bconly_preco_s1] pretrain 30 loss=3.267 t=58s
+[bconly_preco_s1] pretrain 39 loss=2.777 t=75s
+[bconly_preco_s1] it=0 t=92s val_HV=2.0631

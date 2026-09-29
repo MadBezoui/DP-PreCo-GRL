@@ -1,0 +1,6 @@
+[bconly_linear_s2] pretrain 0 loss=5.130 t=3s
+[bconly_linear_s2] pretrain 10 loss=4.162 t=21s
+[bconly_linear_s2] pretrain 20 loss=3.571 t=41s
+[bconly_linear_s2] pretrain 30 loss=2.499 t=61s
+[bconly_linear_s2] pretrain 39 loss=2.736 t=81s
+[bconly_linear_s2] it=0 t=101s val_HV=1.8789
