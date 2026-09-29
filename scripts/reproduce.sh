@@ -19,5 +19,6 @@ fi
 python3 scripts/analyze.py
 [ -d results/policy_eval/replication ] && python3 scripts/analyze_replication.py
 python3 scripts/analyze_conflict.py
+python3 scripts/horizon_audit.py --workers 4   # cyclic continuation of the 24-h profile (regenerates the policy schedules, a few minutes)
 python3 scripts/make_tables.py
 python3 scripts/make_figures.py

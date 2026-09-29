@@ -30,10 +30,11 @@
   "delta_lo": -0.05091890747683578,
   "delta_hi": 0.049102024495168844,
   "p_inst_holm": 1.0,
-  "p_seed_holm": 1.0
+  "p_seed_holm": 1.0,
+  "vd": 0.48
  },
  "rep_precoraw": {
-  "label": "PreCo, un-normalised weights",
+  "label": "PreCo-insp., un-normalised weights",
   "n_seeds": 5,
   "mean": 0.08182013056632056,
   "sd_seeds": 0.016916665591882627,
@@ -49,7 +50,8 @@
   "delta_lo": -0.036239217655184855,
   "delta_hi": 0.027579388725221327,
   "p_inst_holm": 1.0,
-  "p_seed_holm": 1.0
+  "p_seed_holm": 1.0,
+  "vd": 0.36
  },
  "rep_nogat": {
   "label": "w/o graph attention (flat encoder)",
@@ -68,7 +70,8 @@
   "delta_lo": -0.021556785107049142,
   "delta_hi": 0.033077984964908436,
   "p_inst_holm": 1.0,
-  "p_seed_holm": 1.0
+  "p_seed_holm": 1.0,
+  "vd": 0.52
  },
  "rep_nofilm": {
   "label": "w/o FiLM",
@@ -87,7 +90,8 @@
   "delta_lo": -0.08603269645280022,
   "delta_hi": -0.008340634619385286,
   "p_inst_holm": 0.0341796875,
-  "p_seed_holm": 0.15873015873015872
+  "p_seed_holm": 0.15873015873015872,
+  "vd": 0.08
  },
  "rep_nocrit": {
   "label": "w/o criteria head",
@@ -106,7 +110,8 @@
   "delta_lo": -0.08337249342451059,
   "delta_hi": 0.01265453466696825,
   "p_inst_holm": 0.40625,
-  "p_seed_holm": 0.15873015873015872
+  "p_seed_holm": 0.15873015873015872,
+  "vd": 0.08
  },
  "rep_noexpert": {
   "label": "w/o expert pool",
@@ -125,7 +130,8 @@
   "delta_lo": -0.13425737784526084,
   "delta_hi": -0.03239876251450516,
   "p_inst_holm": 0.005859375,
-  "p_seed_holm": 0.047619047619047616
+  "p_seed_holm": 0.047619047619047616,
+  "vd": 0.0
  },
  "_orig": {
   "preco": 0.07805602929260463,

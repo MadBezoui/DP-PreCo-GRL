@@ -200,8 +200,8 @@ json.dump(dict(pairwise=stats, overall=overall, friedman_p=fried,
           open(os.path.join(SUM, "stats.json"), "w"), indent=1, default=float)
 
 # ------------------------------------------------------------------ LaTeX helpers
-SHORT = {OURS: "PreCo", "LS-GRL": "LS", f"{OURS} + NSGA-II": "PreCo+NSGA-II",
-         "LS-GRL + NSGA-II": "LS+NSGA-II", f"{OURS} + NSGA-III": "PreCo+NSGA-III",
+SHORT = {OURS: "PreCo-insp.", "LS-GRL": "LS", f"{OURS} + NSGA-II": "PreCo-insp.+NSGA-II",
+         "LS-GRL + NSGA-II": "LS+NSGA-II", f"{OURS} + NSGA-III": "PreCo-insp.+NSGA-III",
          "LS-GRL + NSGA-III": "LS+NSGA-III"}
 
 
@@ -265,7 +265,7 @@ if sub_order:
     tl = ["\\begin{table}[htbp]", "\\centering",
           "\\caption{Front quality on the 12 benchmarks with the real test day (mean over instances, standard deviation over training "
           "seeds or runs). Times are seconds per instance on one thread and include the policy sweep for hybrids.}",
-          "\\label{tab:main}", "\\small", "\\begin{tabular}{lcccc}", "\\toprule",
+          "\\label{tab:main}", "\\footnotesize", "\\begin{tabular}{lcccc}", "\\toprule",
           "Method & HV ratio & Rule-scaled HV & IGD$^+$ & Time (s) \\\\", "\\midrule"]
     for l in sub_order:
         nr = min(len(table[i][l]["hv"]) for i in insts)
@@ -289,7 +289,7 @@ for l in pref_labels:
 if pref_labels:
     lines = ["\\begin{table}[htbp]", "\\centering",
              "\\caption{Preference control on the 84 evaluation preferences (mean over instances). Policies and PWG receive the "
-             "preference in advance, the NSGA rows select a posteriori. ASF: achievement function, WS: weighted sum, "
+             "preference in advance, the NSGA rows select a posteriori (ASF-best member, smallest weighted sum for WS). ASF: achievement function, WS: weighted sum, "
              "$\\rho$: mean responsiveness.}", "\\label{tab:pref}", "\\footnotesize",
              "\\setlength{\\tabcolsep}{2.5pt}",
              "\\begin{tabular}{lccccc}", "\\toprule",
@@ -309,7 +309,7 @@ if pref_labels:
     lines = ["\\begin{table}[htbp]", "\\centering",
              "\\caption{Responsiveness of each objective to its weight: Spearman correlation between $w_k$ and $f_k$ over the 84 "
              "preferences, mean over instances and runs ($-1$: raising the weight always improves the objective). "
-             "Test: benchmarks. Validation: synthetic scenarios.}",
+             "NSGA rows: ASF-best front member per preference. Test: benchmarks. Validation: synthetic scenarios.}",
              "\\label{tab:resp}", "\\footnotesize", "\\setlength{\\tabcolsep}{3pt}",
              "\\begin{tabular}{llcccc}", "\\toprule",
              "Method & Data & Makespan & Cost & CO$_2$ & OWA risk \\\\", "\\midrule"]
@@ -324,6 +324,44 @@ if pref_labels:
         if l in vresp:
             for k, on in enumerate(("Mk", "Cost", "Co", "Risk")):
                 put(f"vrho{a}{on}", vresp[l][k], "{:+.2f}")
+
+# ------------------------------------------------------------------ responsiveness: distribution over instances
+def _boot_ci(x, n_boot=10000, seed=5):
+    rng = np.random.default_rng(seed)
+    x = np.asarray(x, float)
+    x = x[~np.isnan(x)]
+    m = np.array([x[rng.integers(0, len(x), len(x))].mean() for _ in range(n_boot)])
+    return np.quantile(m, [0.025, 0.975])
+
+
+if pref_labels:
+    lines = ["\\begin{table}[htbp]", "\\centering",
+             "\\caption{Responsiveness $\\rho_k$ over the 12 benchmarks (per instance, mean over runs): mean with 95\\% percentile-bootstrap "
+             "interval over instances, median, quartiles and number of instances with negative and positive $\\rho_k$.}",
+             "\\label{tab:respinst}", "\\scriptsize", "\\setlength{\\tabcolsep}{4pt}",
+             "\\begin{tabular}{llrcrrrrr}", "\\toprule",
+             "Method & Objective & Mean & 95\\% CI & Median & Q1 & Q3 & $\\rho<0$ & $\\rho>0$ \\\\", "\\midrule"]
+    obj_names = ("Makespan", "Cost", "CO$_2$", "OWA risk")
+    tags_ = {OURS: "Preco", "LS-GRL": "Ls", "PWG": "Pwg", "NSGA-II (a posteriori)": "Nsgaii", "NSGA-III (a posteriori)": "Nsgaiii"}
+    for li, l in enumerate(pref_labels):
+        for k in range(4):
+            x = pref_summary[l][:, 4 + k]
+            xv = x[~np.isnan(x)]
+            lo, hi = _boot_ci(xv)
+            q1, med, q3 = np.percentile(xv, [25, 50, 75])
+            neg, pos = int((xv < 0).sum()), int((xv > 0).sum())
+            first = SHORT.get(l, l) if k == 0 else ""
+            lines.append(f"{first} & {obj_names[k]} & {xv.mean():+.2f} & [{lo:+.2f}, {hi:+.2f}] & {med:+.2f} & {q1:+.2f} & {q3:+.2f} & "
+                         f"{neg}/{len(xv)} & {pos}/{len(xv)} \\\\")
+            t_ = tags_.get(l)
+            if t_:
+                on = ("Mk", "Cost", "Co", "Risk")[k]
+                put(f"respNeg{on}{t_}", str(neg)); put(f"respPos{on}{t_}", str(pos))
+                put(f"respMin{on}{t_}", xv.min(), "{:+.2f}"); put(f"respMax{on}{t_}", xv.max(), "{:+.2f}")
+        if li < len(pref_labels) - 1:
+            lines.append("\\midrule")
+    lines += ["\\bottomrule", "\\end{tabular}", "\\end{table}"]
+    open(os.path.join(GEN, "tab_resp_inst.tex"), "w").write("\n".join(lines) + "\n")
 
 # ------------------------------------------------------------------ ablation table
 abl_labels = [l for l in [OURS, "LS-GRL"] + list(ABL) if all(l in table[i] for i in insts)]
@@ -349,7 +387,7 @@ if len(abl_labels) > 1:
         pr = (np.nanmean([np.nanmean(np.array(prefm[i][l], dtype=float), axis=0) for i in insts], axis=0)
               if l in prefm[insts[0]] else [np.nan] * 5)
         name = {OURS: "Full DP-PreCo-GRL", "LS-GRL": "LS-GRL (linear comb.)",
-                "BC warm start only (PreCo targets)": "BC only, PreCo targets",
+                "BC warm start only (PreCo targets)": "BC only, PreCo-insp. targets",
                 "BC warm start only (LS targets)": "BC only, LS targets"}.get(l, l)
         key = {OURS: "Full", "LS-GRL": "Ls", "w/o graph attention": "Nogat", "w/o FiLM": "Nofilm",
                "w/o criteria head": "Nocrit", "w/o expert pool": "Noexpert", "w/o elite pool": "Noelite",
@@ -548,6 +586,8 @@ if os.path.exists(_tc):
     put("macPrepassMean", pre, "{:.3f}")
     put("gatSweepRatio", st["nogat_s0"][1] / st["preco_s0"][1], "{:.2f}")
     put("gatParamRatio", tc["params"]["preco_s0"] / tc["params"]["nogat_s0"], "{:.2f}")
+    put("gatParamFewerPct", 100 * (1 - tc["params"]["nogat_s0"] / tc["params"]["preco_s0"]), "{:.1f}")
+    put("gatSweepPct", 100 * st["nogat_s0"][1] / st["preco_s0"][1], "{:.0f}")
 
 # ------------------------------------------------------------------ numbers for the text
 put("numseedsmain", str(len(MAIN[OURS])))
@@ -616,6 +656,8 @@ if tm:
     put("tmWins", str(sum(np.mean(v["hybrid"]) > np.mean(v["long"]) for v in tm.values())))
     put("tmN", str(len(tm)))
     put("tmBudget", np.mean([v["budget"] for v in tm.values()]) / 1000, "{:.0f}")
+    put("tmBudgetMin", min(v["budget"] for v in tm.values()) / 1000, "{:.0f}")
+    put("tmBudgetMax", max(v["budget"] for v in tm.values()) / 1000, "{:.0f}")
 # ------------------------------------------------------------------ generalisation diagnostic
 # The validation metric (HV in the space normalised by the best/worst dispatching rule) is
 # recomputed on the benchmarks, with NSGA-II at the validation budget (20,000 evaluations,
@@ -702,12 +744,14 @@ if day_files:
     json.dump({c: {l: v.tolist() for l, v in d.items()} for c, d in dres.items()},
               open(os.path.join(SUM, "days.json"), "w"), indent=1)
     lines = ["\\begin{table}[htbp]", "\\centering",
-             "\\caption{Mean HV ratio under other energy conditions (real day with three shift starts, four unseen synthetic days). "
-             "$\\bar c$ and $\\Delta c$: mean and range of the price (EUR/MWh) over 16~h. $\\rho_{\\rm cost}$: cost responsiveness "
-             "for PreCo and LS.}",
+             "\\caption{Mean HV ratio under other energy conditions. The ratios use a condition-specific reference front pooled "
+             "from the four methods shown, so they are not comparable with Table~1 of the main text. "
+             "$\\bar c$, $\\Delta c$: mean and range of the price (EUR/MWh) over 16~h. $\\rho_{\\rm cost}$: cost responsiveness "
+             "of PreCo-insp. and LS.}",
              "\\label{tab:days}", "\\footnotesize", "\\setlength{\\tabcolsep}{3pt}",
              "\\begin{tabular}{lrrccccc}", "\\toprule",
-             "Condition & $\\bar c$ & $\\Delta c$ & PreCo & LS & PWG & NSGA-II & $\\rho_{\\rm cost}$ \\\\", "\\midrule"]
+             " & & & \\multicolumn{4}{c}{Condition-specific HV ratio} & \\\\", "\\cmidrule(lr){4-7}",
+             "Condition & $\\bar c$ & $\\Delta c$ & PreCo-insp. & LS & PWG & NSGA-II & $\\rho_{\\rm cost}$ \\\\", "\\midrule"]
     for c in conds:
         mv = {l: dres[c][l].mean() for l in dlabs}
         best = max(mv.values())
@@ -936,6 +980,11 @@ if os.path.exists(cred_p):
             t_lo, t_hi = cluster_bootstrap(K, 200, "strict", seed=2)
             ci_out[f"{beta_}_{mname}"] = dict(s_, exec_ci_cluster=[e_lo, e_hi], strict_ci_cluster=[t_lo, t_hi])
             t = f"{btag}{mtag}"
+            # the same statistic on distinct schedules only (preferences that return the same schedule count once)
+            uidx = [np.unique(np.round(cr[("preco_s0", beta_, i)]["F"], 9), axis=0, return_index=True)[1] for i in keys_i]
+            n_u = sum(len(u) for u in uidx)
+            ok_u = sum(int((k[u] == 200).sum()) for k, u in zip(K, uidx))
+            put(f"credUniqN{t}", _cnt(n_u)); put(f"credUniqOk{t}", _cnt(ok_u)); put(f"credUniqRate{t}", 100 * ok_u / n_u, "{:.1f}")
             put(f"credFail{t}", _cnt(s_["exec_fail"]))
             put(f"credRate{t}", 100 * s_["exec_rate"], "{:.4f}")
             put(f"credExecLo{t}", 100 * e_lo, "{:.3f}"); put(f"credExecHi{t}", 100 * e_hi, "{:.3f}")
@@ -1078,6 +1127,18 @@ _sm = {m: [np.mean([table[i][m]["hv"][r] for i in insts]) for r in range(len(tab
 put("pMwNsgaiiPreco", mannwhitney(_sm["NSGA-II"], _sm["DP-PreCo-GRL"]), "p")
 put("pMwNsgaiiiPreco", mannwhitney(_sm["NSGA-III"], _sm["DP-PreCo-GRL"]), "p")
 put("pMwPrecoLs", mannwhitney(_sm["DP-PreCo-GRL"], _sm["LS-GRL"]), "p")
+# Vargha-Delaney A across seeds: probability that a run of the first method beats a run of the second
+put("vdNsgaiiPreco", a12(_sm["NSGA-II"], _sm["DP-PreCo-GRL"]), "{:.2f}")
+# instance-level (paired) effect sizes: share of instances on which the first method has the higher mean HV ratio (ties count one half)
+def _paired_a(x, y):
+    x, y = np.asarray(x), np.asarray(y)
+    return float(np.mean(x > y) + 0.5 * np.mean(x == y))
+
+
+put("vdiNsgaiiPreco", _paired_a(means["NSGA-II"], means["DP-PreCo-GRL"]), "{:.2f}")
+put("vdiPrecoLs", _paired_a(means["DP-PreCo-GRL"], means["LS-GRL"]), "{:.2f}")
+put("vdNsgaiiiPreco", a12(_sm["NSGA-III"], _sm["DP-PreCo-GRL"]), "{:.2f}")
+put("vdPrecoLs", a12(_sm["DP-PreCo-GRL"], _sm["LS-GRL"]), "{:.2f}")
 
 with open(os.path.join(GEN, "numbers.tex"), "w") as f:
     for k, v in NUM.items():

@@ -80,7 +80,7 @@ merge_macros(os.path.join(ROOT, "outputs", "generated", "numbers_rep.tex"), macr
 
 lines = ["\\begin{table}[htbp]", "\\centering",
          "\\caption{Real day versus carbon-inverted day (price-carbon correlation \\confCorrPriceCoReal{} and \\confCorrPriceCo{}). "
-         "HV ratio against the pooled front of each condition and responsiveness $\\rho_k$ of the weights, mean over instances "
+         "HV ratio against the pooled front of each condition, not comparable with Table~1 of the main text, and responsiveness $\\rho_k$, mean over instances "
          "and seeds. Rank correlation of $f_2$ and $f_3$ on the pooled front: \\confCorrFrontReal{} (real) and \\confCorrFront{} (inverted).}",
          "\\label{tab:conflict}", "\\scriptsize", "\\setlength{\\tabcolsep}{2.5pt}",
          "\\begin{tabular}{llccccc}", "\\toprule",

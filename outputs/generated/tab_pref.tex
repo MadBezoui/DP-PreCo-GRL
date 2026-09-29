@@ -1,6 +1,6 @@
 \begin{table}[htbp]
 \centering
-\caption{Preference control on the 84 evaluation preferences (mean over instances). Policies and PWG receive the preference in advance, the NSGA rows select a posteriori. ASF: achievement function, WS: weighted sum, $\rho$: mean responsiveness.}
+\caption{Preference control on the 84 evaluation preferences (mean over instances). Policies and PWG receive the preference in advance, the NSGA rows select a posteriori (ASF-best member, smallest weighted sum for WS). ASF: achievement function, WS: weighted sum, $\rho$: mean responsiveness.}
 \label{tab:pref}
 \footnotesize
 \setlength{\tabcolsep}{2.5pt}
@@ -8,7 +8,7 @@
 \toprule
 Method & ASF reg.\ $\downarrow$ & Angle ($^\circ$) $\downarrow$ & WS reg.\ $\downarrow$ & $\rho$ $\downarrow$ & Infeas.\ $\downarrow$ \\
 \midrule
-PreCo & 0.815 & 61.6 & 0.586 & -0.10 & 0.9\% \\
+PreCo-insp. & 0.815 & 61.6 & 0.586 & -0.10 & 0.9\% \\
 LS & 0.822 & 67.0 & 0.638 & -0.05 & 0.9\% \\
 PWG & 0.901 & 76.1 & 0.778 & -0.29 & 14.1\% \\
 NSGA-II (a post.) & 0.255 & 33.3 & 0.166 & -0.61 & 0.0\% \\

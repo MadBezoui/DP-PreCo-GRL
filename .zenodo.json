@@ -1,5 +1,5 @@
 {
-  "title": "DP-PreCo-GRL: code, data and raw results for Preference-Conditioned Graph Reinforcement Learning for Energy-, Carbon- and Risk-Aware Flexible Job-Shop Scheduling with Fuzzy Processing Times",
+  "title": "DP-PreCo-GRL: code, data and raw results for 'Preference-conditioned graph reinforcement learning for energy-aware flexible job-shop scheduling: a critical evaluation'",
   "upload_type": "software",
   "description": "Simulator, baselines (dispatching rules, PWG, NSGA-II/III), preference-conditioned graph policy, PPO trainer, analysis scripts, trained checkpoints and per-run objective vectors of the manuscript.",
   "creators": [

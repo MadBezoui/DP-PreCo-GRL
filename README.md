@@ -5,7 +5,7 @@
 Code, data, trained checkpoints and raw results of a critical evaluation of a preference-conditioned
 graph policy for a four-objective flexible job-shop problem with triangular fuzzy processing times
 (makespan, net grid electricity cost with on-site PV, grid CO2 emissions and an inequality-sensitive
-workload-overload risk) under a credibility-gated capacity constraint. The policy is compared with
+workload-overload risk) under a credibility-gated cumulative workload limit. The policy is compared with
 dispatching rules, a preference-weighted greedy heuristic and rule-seeded NSGA-II and NSGA-III that
 share the same compiled decoder.
 
@@ -25,7 +25,7 @@ policy, 10 seeds for NSGA, hypervolume ratio against the pooled reference front)
   weight and objective: -0.69 for the makespan, +0.11, +0.08 and +0.11 for the others).
 * No significant difference between the PreCo-inspired and the linear combination of advantages was
   detected. A five-seed replication of the ablations (`results/runs_rep`, second platform) shows that the
-  expert archive matters most and finds no benefit of graph attention over a flat encoder.
+  expert archive matters most and finds no evidence that graph attention improves front quality over a flat encoder.
 * Ten policy schedules in the initial population raise NSGA-II from 0.422 to 0.512 at equal evaluations,
   but a longer NSGA-II run with the same computing time reaches 0.490.
 * The credibility gate is empirically conservative under independent durations at the default level
@@ -68,6 +68,7 @@ PyTorch 2.14, pymoo 0.6.2, moocore 0.3.2).
 python scripts/analyze.py              # indicators, statistics, tables and number macros
 python scripts/analyze_replication.py  # replication of the ablations (frozen reference fronts)
 python scripts/analyze_conflict.py     # real day versus carbon-inverted day
+python scripts/horizon_audit.py --reuse  # cyclic continuation of the 24-h profile (stored replay, without --reuse the schedules are regenerated)
 python scripts/make_tables.py
 python scripts/make_figures.py
 ```
@@ -89,8 +90,11 @@ reported run on a 4-core Intel Xeon VM without GPU: training data 2.5 min, basel
 
 ## Reproducibility notes
 
-* Evaluating stored checkpoints is exactly reproducible across machines. Re-running the 84-preference
-  sweep of a stored policy on an Apple M1 Pro reproduced the stored objective vectors bit for bit.
+* Evaluating stored checkpoints is almost exactly reproducible across machines. Re-running the 84-preference
+  sweeps of the ten main policies on an Apple M1 Pro (`scripts/horizon_audit.py`) regenerated 10,078 of the 10,080
+  stored objective vectors to floating-point precision (all 5,040 of DP-PreCo-GRL). Two rollouts of two LS-GRL
+  policies differ by up to 6 %, probably through a near-tie between candidates, which was not investigated. The
+  reported results use the stored vectors.
   `scripts/analyze.py` reproduces the stored tables and number macros byte for byte.
 * Training is deterministic within a platform but not across CPU architectures. The NSGA-II runs that
   build the expert archive diverge between an x86 VM and an ARM machine even with identical library
@@ -115,8 +119,8 @@ reported run on a 4-core Intel Xeon VM without GPU: training data 2.5 min, basel
 ## Citation
 
 If you use this software or its results, please cite the associated article (title: "Preference-conditioned
-graph reinforcement learning for energy-, carbon- and risk-aware flexible job-shop scheduling with fuzzy
-processing times: a critical evaluation", M. Bezoui, submitted to Knowledge-Based Systems) and this
+graph reinforcement learning for energy-aware flexible job-shop scheduling: a critical evaluation",
+M. Bezoui, submitted to Knowledge-Based Systems) and this
 repository (`https://github.com/MadBezoui/DP-PreCo-GRL`, Zenodo DOI: [10.5281/zenodo.23046231](https://doi.org/10.5281/zenodo.23046231), see `CITATION.cff`).
 
 ## Licence

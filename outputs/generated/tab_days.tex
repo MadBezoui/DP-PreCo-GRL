@@ -1,12 +1,14 @@
 \begin{table}[htbp]
 \centering
-\caption{Mean HV ratio under other energy conditions (real day with three shift starts, four unseen synthetic days). $\bar c$ and $\Delta c$: mean and range of the price (EUR/MWh) over 16~h. $\rho_{\rm cost}$: cost responsiveness for PreCo and LS.}
+\caption{Mean HV ratio under other energy conditions. The ratios use a condition-specific reference front pooled from the four methods shown, so they are not comparable with Table~1 of the main text. $\bar c$, $\Delta c$: mean and range of the price (EUR/MWh) over 16~h. $\rho_{\rm cost}$: cost responsiveness of PreCo-insp. and LS.}
 \label{tab:days}
 \footnotesize
 \setlength{\tabcolsep}{3pt}
 \begin{tabular}{lrrccccc}
 \toprule
-Condition & $\bar c$ & $\Delta c$ & PreCo & LS & PWG & NSGA-II & $\rho_{\rm cost}$ \\
+ & & & \multicolumn{4}{c}{Condition-specific HV ratio} & \\
+\cmidrule(lr){4-7}
+Condition & $\bar c$ & $\Delta c$ & PreCo-insp. & LS & PWG & NSGA-II & $\rho_{\rm cost}$ \\
 \midrule
 real 00:00 & 170 & 161 & 0.306 & 0.177 & 0.162 & \textbf{0.813} & +0.09 / +0.15 \\
 real 06:00 & 210 & 276 & 0.173 & 0.122 & 0.014 & \textbf{0.764} & +0.07 / +0.14 \\

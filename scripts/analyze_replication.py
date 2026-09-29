@@ -22,7 +22,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from morl_fjsp.analysis import feasible, indicators  # noqa: E402
 from morl_fjsp.instance import BENCHMARKS  # noqa: E402
 from morl_fjsp.latex import merge_macros, pfmt  # noqa: E402
-from morl_fjsp.metrics import holm, mannwhitney, wilcoxon  # noqa: E402
+from morl_fjsp.metrics import a12, holm, mannwhitney, wilcoxon  # noqa: E402
 from morl_fjsp.stats import paired_bootstrap_diff  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -33,7 +33,7 @@ refs = pickle.load(open(os.path.join(SUM, "reference_fronts.pkl"), "rb"))
 # (run prefix, table label, macro tag, macro of the original two-seed value or None)
 VARIANTS = [("rep_preco", "Full DP-PreCo-GRL", "Preco", "ablFull"),
             ("rep_linear", "LS-GRL (linear comb.)", "Ls", "ablLs"),
-            ("rep_precoraw", "PreCo, un-normalised weights", "PrecoRaw", None),
+            ("rep_precoraw", "PreCo-insp., un-normalised weights", "PrecoRaw", None),
             ("rep_nogat", "w/o graph attention (flat encoder)", "Nogat", "ablNogat"),
             ("rep_nofilm", "w/o FiLM", "Nofilm", "ablNofilm"),
             ("rep_nocrit", "w/o criteria head", "Nocrit", "ablNocrit"),
@@ -88,40 +88,50 @@ for k, (pref, lab, tag, _) in enumerate(VARIANTS):
         d, lo, hi = paired_bootstrap_diff(dict(kind="crossed", M=hv[pref]), dict(kind="crossed", M=full),
                                           n_boot=10000, seed=11)
         rec.update(delta=d, delta_lo=lo, delta_hi=hi, p_inst_holm=float(p_inst[k - 1]),
-                   p_seed_holm=float(p_seed[k - 1]))
+                   p_seed_holm=float(p_seed[k - 1]), vd=a12(sm, full.mean(0)))
         put(f"rep{tag}Delta", d, "{:+.3f}"); put(f"rep{tag}Lo", lo, "{:+.3f}"); put(f"rep{tag}Hi", hi, "{:+.3f}")
         put(f"rep{tag}Pi", pfmt(rec["p_inst_holm"])); put(f"rep{tag}Ps", pfmt(rec["p_seed_holm"]))
+        put(f"rep{tag}Vd", rec["vd"], "{:.2f}")
     res[pref] = rec
 
 # replication of the main comparison across platforms (same frozen reference; 5 vs 5 training seeds)
 put("repVsOrigPrecoP", pfmt(mannwhitney(hv["rep_preco"].mean(0), orig["preco"].mean(0))))
 put("repVsOrigLsP", pfmt(mannwhitney(hv["rep_linear"].mean(0), orig["linear"].mean(0))))
 put("repOrigPreco", float(orig["preco"].mean())); put("repOrigLs", float(orig["linear"].mean()))
-put("repPrecoVsLsP", pfmt(mannwhitney(hv["rep_preco"].mean(0), hv["rep_linear"].mean(0))))
-d, lo, hi = paired_bootstrap_diff(dict(kind="crossed", M=hv["rep_preco"]), dict(kind="crossed", M=hv["rep_linear"]),
-                                  n_boot=10000, seed=12)
-put("repPrecoVsLsDelta", d, "{:+.3f}"); put("repPrecoVsLsLo", lo, "{:+.3f}"); put("repPrecoVsLsHi", hi, "{:+.3f}")
+# PreCo versus LS-GRL is reported with the LS-GRL row of the table (variant minus full model), one interval only
 res["_orig"] = dict(preco=float(orig["preco"].mean()), linear=float(orig["linear"].mean()))
 json.dump(res, open(os.path.join(SUM, "replication.json"), "w"), indent=1)
 
 lines = ["\\begin{table*}[htbp]", "\\centering",
          "\\caption{Five-seed replication of the principal ablations on a second platform (HV ratio against the frozen reference "
-         "front, mean\\,$\\pm$\\,standard deviation over seeds). $\\Delta$: difference to the full model with a 95\\% bootstrap "
-         "interval. $p_{\\mathrm{s}}$, $p_{\\mathrm{i}}$: Holm-corrected tests across seeds and across instances. Orig.: value of "
-         "the original two-seed run. Infeas.: share of rollouts ending in a forced-fallback violation.}",
-         "\\label{tab:ablrep}", "\\footnotesize", "\\setlength{\\tabcolsep}{3pt}",
-         "\\begin{tabular}{lcccccc}", "\\toprule",
-         "Variant & HV ratio $\\uparrow$ & $\\Delta$ [95\\% CI] & $p_{\\mathrm{s}}$ & $p_{\\mathrm{i}}$ & Infeas. & Orig. \\\\", "\\midrule"]
+         "front, mean\\,$\\pm$\\,standard deviation over seeds). Orig.: original two-seed run. Infeas.: share of rollouts with a "
+         "forced-fallback violation. Test definitions below the table.}",
+         "\\label{tab:ablrep}", "\\footnotesize", "\\setlength{\\tabcolsep}{4pt}",
+         "\\begin{tabular}{lrrrrrrr}", "\\toprule",
+         "Variant & HV ratio $\\uparrow$ & Orig. & $\\Delta$ [95\\% CI] & $A$ & $p_{\\mathrm{s}}$ & $p_{\\mathrm{i}}$ & Infeas. \\\\", "\\midrule"]
+
+
+def _p(x):
+    return f"$\\mathbf{{{pfmt(x)}}}$" if x < 0.05 else f"${pfmt(x)}$"
+
+
 for k, (pref, lab, tag, om) in enumerate(VARIANTS):
     r = res[pref]
+    orig = f"\\{om}{{}}" if om else "-"
+    hv_cell = f"{r['mean']:.3f}\\,$\\pm$\\,{r['sd_seeds']:.3f}"
     if k == 0:
-        row = f"{lab} & {r['mean']:.3f}\\,$\\pm$\\,{r['sd_seeds']:.3f} & - & - & - & {r['infeas_pct']:.1f}\\% & \\{om}{{}} \\\\"
+        row = f"{lab} & {hv_cell} & {orig} & - & - & - & - & {r['infeas_pct']:.1f}\\% \\\\"
     else:
-        row = (f"{lab} & {r['mean']:.3f}\\,$\\pm$\\,{r['sd_seeds']:.3f} & {r['delta'] + 0.0:+.3f} [{r['delta_lo']:+.3f}, {r['delta_hi']:+.3f}] "
-               f"& ${pfmt(r['p_seed_holm'])}$ & ${pfmt(r['p_inst_holm'])}$ & {r['infeas_pct']:.1f}\\% & "
-               + (f"\\{om}{{}}" if om else "-") + " \\\\")
+        row = (f"{lab} & {hv_cell} & {orig} & {r['delta'] + 0.0:+.3f} [{r['delta_lo']:+.3f}, {r['delta_hi']:+.3f}] "
+               f"& {r['vd']:.2f} & {_p(r['p_seed_holm'])} & {_p(r['p_inst_holm'])} & {r['infeas_pct']:.1f}\\% \\\\")
     lines.append(row)
-lines += ["\\bottomrule", "\\end{tabular}", "\\end{table*}"]
+lines += ["\\bottomrule", "\\end{tabular}",
+          "\\par\\smallskip",
+          "{\\footnotesize Note. $\\Delta$: variant minus full model with a 95\\% percentile-bootstrap interval that resamples instances and seeds. "
+          "$A$: Vargha-Delaney effect size across seeds, oriented as variant versus full model ($A<0.5$ favours the full model). "
+          "$p_{\\mathrm{s}}$: two-sided Mann-Whitney test over the five seed-level averages. $p_{\\mathrm{i}}$: two-sided paired Wilcoxon test over the "
+          "12 per-instance means. Both are Holm-corrected over the six comparisons shown. Bold: $p<0.05$.}",
+          "\\end{table*}"]
 open(os.path.join(GEN, "tab_ablation_rep.tex"), "w").write("\n".join(lines) + "\n")
 merge_macros(os.path.join(GEN, "numbers_rep.tex"), macros)
 print(json.dumps({k: {a: b for a, b in v.items() if a != 'seed_means'} for k, v in res.items()}, indent=1))

@@ -1,20 +1,22 @@
 \begin{table*}[htbp]
 \centering
-\caption{Five-seed replication of the principal ablations on a second platform (HV ratio against the frozen reference front, mean\,$\pm$\,standard deviation over seeds). $\Delta$: difference to the full model with a 95\% bootstrap interval. $p_{\mathrm{s}}$, $p_{\mathrm{i}}$: Holm-corrected tests across seeds and across instances. Orig.: value of the original two-seed run. Infeas.: share of rollouts ending in a forced-fallback violation.}
+\caption{Five-seed replication of the principal ablations on a second platform (HV ratio against the frozen reference front, mean\,$\pm$\,standard deviation over seeds). Orig.: original two-seed run. Infeas.: share of rollouts with a forced-fallback violation. Test definitions below the table.}
 \label{tab:ablrep}
 \footnotesize
-\setlength{\tabcolsep}{3pt}
-\begin{tabular}{lcccccc}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrrrrrr}
 \toprule
-Variant & HV ratio $\uparrow$ & $\Delta$ [95\% CI] & $p_{\mathrm{s}}$ & $p_{\mathrm{i}}$ & Infeas. & Orig. \\
+Variant & HV ratio $\uparrow$ & Orig. & $\Delta$ [95\% CI] & $A$ & $p_{\mathrm{s}}$ & $p_{\mathrm{i}}$ & Infeas. \\
 \midrule
-Full DP-PreCo-GRL & 0.086\,$\pm$\,0.019 & - & - & - & 1.1\% & \ablFull{} \\
-LS-GRL (linear comb.) & 0.086\,$\pm$\,0.021 & +0.000 [-0.051, +0.049] & $1.000$ & $1.000$ & 0.8\% & \ablLs{} \\
-PreCo, un-normalised weights & 0.082\,$\pm$\,0.017 & -0.004 [-0.036, +0.028] & $1.000$ & $1.000$ & 1.1\% & - \\
-w/o graph attention (flat encoder) & 0.091\,$\pm$\,0.009 & +0.005 [-0.022, +0.033] & $1.000$ & $1.000$ & 0.7\% & \ablNogat{} \\
-w/o FiLM & 0.042\,$\pm$\,0.017 & -0.044 [-0.086, -0.008] & $0.159$ & $0.034$ & 0.2\% & \ablNofilm{} \\
-w/o criteria head & 0.054\,$\pm$\,0.013 & -0.032 [-0.083, +0.013] & $0.159$ & $0.406$ & 0.0\% & \ablNocrit{} \\
-w/o expert pool & 0.006\,$\pm$\,0.006 & -0.079 [-0.134, -0.032] & $0.048$ & $0.0059$ & 6.0\% & \ablNoexpert{} \\
+Full DP-PreCo-GRL & 0.086\,$\pm$\,0.019 & \ablFull{} & - & - & - & - & 1.1\% \\
+LS-GRL (linear comb.) & 0.086\,$\pm$\,0.021 & \ablLs{} & +0.000 [-0.051, +0.049] & 0.48 & $1.000$ & $1.000$ & 0.8\% \\
+PreCo-insp., un-normalised weights & 0.082\,$\pm$\,0.017 & - & -0.004 [-0.036, +0.028] & 0.36 & $1.000$ & $1.000$ & 1.1\% \\
+w/o graph attention (flat encoder) & 0.091\,$\pm$\,0.009 & \ablNogat{} & +0.005 [-0.022, +0.033] & 0.52 & $1.000$ & $1.000$ & 0.7\% \\
+w/o FiLM & 0.042\,$\pm$\,0.017 & \ablNofilm{} & -0.044 [-0.086, -0.008] & 0.08 & $0.159$ & $\mathbf{0.034}$ & 0.2\% \\
+w/o criteria head & 0.054\,$\pm$\,0.013 & \ablNocrit{} & -0.032 [-0.083, +0.013] & 0.08 & $0.159$ & $0.406$ & 0.0\% \\
+w/o expert pool & 0.006\,$\pm$\,0.006 & \ablNoexpert{} & -0.079 [-0.134, -0.032] & 0.00 & $\mathbf{0.048}$ & $\mathbf{0.0059}$ & 6.0\% \\
 \bottomrule
 \end{tabular}
+\par\smallskip
+{\footnotesize Note. $\Delta$: variant minus full model with a 95\% percentile-bootstrap interval that resamples instances and seeds. $A$: Vargha-Delaney effect size across seeds, oriented as variant versus full model ($A<0.5$ favours the full model). $p_{\mathrm{s}}$: two-sided Mann-Whitney test over the five seed-level averages. $p_{\mathrm{i}}$: two-sided paired Wilcoxon test over the 12 per-instance means. Both are Holm-corrected over the six comparisons shown. Bold: $p<0.05$.}
 \end{table*}

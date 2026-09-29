@@ -195,13 +195,13 @@ def fig_anytime(insts=("Mk06", "Mk10", "La21")):
             Y = np.array([[p[1] for p in c] for c in curves])
             st = style(lab)
             ax.plot(T, np.median(Y, 0), color=st["color"], label=lab + " (rule-seeded)")
-        if inst in d["long"]:                  # rule-seeded NSGA-II run 4x longer (200k evaluations)
+        if inst in d["long"]:                  # rule-seeded NSGA-II run 4x longer (200k evaluations), read at the hybrid's evaluation-equivalent for the equal-time comparison
             curves = [[(t, hvr(F)) for g, e, t, F in r["trace"]] for r in d["long"][inst]["moea"]["nsga2"]]
             L = min(len(c) for c in curves)
             T = np.array([[p[0] for p in c[:L]] for c in curves]).mean(0)
             Y = np.array([[p[1] for p in c[:L]] for c in curves])
             ax.plot(T, np.median(Y, 0), color=style("NSGA-II")["color"], ls=":", lw=1.2,
-                    label="NSGA-II (rule-seeded, 200k eval.)")
+                    label="NSGA-II (rule-seeded, long run, 200k eval.)")
         for lab in (f"{OURS} + NSGA-II",):
             if lab in d["hyb"] and inst in d["hyb"][lab]:
                 curves = [[(t, hvr(F)) for g, e, t, F in x[2]] for x in d["hyb"][lab][inst]]
