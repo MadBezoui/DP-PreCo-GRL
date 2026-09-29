@@ -1,6 +1,6 @@
 # DP-PreCo-GRL: preference-conditioned graph reinforcement learning for energy-, carbon- and risk-aware flexible job-shop scheduling
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23046231.svg)](https://doi.org/10.5281/zenodo.23046231)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23046230.svg)](https://doi.org/10.5281/zenodo.23046230)
 
 Code, data, trained checkpoints and raw results of a critical evaluation of a preference-conditioned
 graph policy for a four-objective flexible job-shop problem with triangular fuzzy processing times
@@ -121,7 +121,7 @@ reported run on a 4-core Intel Xeon VM without GPU: training data 2.5 min, basel
 If you use this software or its results, please cite the associated article (title: "Preference-conditioned
 graph reinforcement learning for energy-aware flexible job-shop scheduling: a critical evaluation",
 M. Bezoui, submitted to Knowledge-Based Systems) and this
-repository (`https://github.com/MadBezoui/DP-PreCo-GRL`, Zenodo DOI: [10.5281/zenodo.23046231](https://doi.org/10.5281/zenodo.23046231), see `CITATION.cff`).
+repository (`https://github.com/MadBezoui/DP-PreCo-GRL`, Zenodo DOI: [10.5281/zenodo.23046230](https://doi.org/10.5281/zenodo.23046230), see `CITATION.cff`).
 
 ## Licence
 
