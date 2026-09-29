@@ -8,7 +8,7 @@ authors:
     affiliation: "LINEACT, CESI, Campus de Nancy, France"
     email: mbezoui@cesi.fr
 repository-code: "https://github.com/MadBezoui/DP-PreCo-GRL"
-doi: "10.5281/zenodo.23046231"
+doi: "10.5281/zenodo.23046230"
 license: MIT
 keywords:
   - flexible job-shop scheduling
